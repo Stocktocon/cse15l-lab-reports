@@ -1,7 +1,9 @@
 # Sample heading
 ## sample heading 2
 
-[Link](https://stocktocon.github.io/cse15l-lab-reports/something.html) is a link
+[Something](https://stocktocon.github.io/cse15l-lab-reports/something.html) is a link
+
+![image](https://user-images.githubusercontent.com/97484110/149245146-a768a8d9-9530-4459-b074-28161710ca41.png)
 
 > fake quote
 
