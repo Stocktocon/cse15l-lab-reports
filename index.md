@@ -1,5 +1,9 @@
-# Sample heading
-## sample heading 2
+# LAB LINKS ! ! !
+[lab-report-1-week-2](https://stocktocon.github.io/cse15l-lab-reports/lab-report-1-week-2.html)
+
+
+## randoms and fun idk index.md lol
+how was your day?
 
 [Something](https://stocktocon.github.io/cse15l-lab-reports/something.html) is a link
 
