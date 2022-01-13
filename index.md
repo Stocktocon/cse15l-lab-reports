@@ -27,6 +27,6 @@ __BOLD TEXT WOOOOOO__
 umm........ `CODING` or something
 
 ```
-public static main(String[] args){
+public static void main(String[] args){
   System.out.println("not hello world.");
 }
