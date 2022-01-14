@@ -56,3 +56,27 @@ again the 3 characters following the wi22 will vary from person to person.
 By logging in through `ssh` and using the `ls` command we can indeed see that the file has been copied into the remote computer.
 
 ## Setting an SSH Key
+
+We create an SSH key in order to skip the step of inputting our password whenever using the `SSH` or `SCP` command. This saves us time.
+
+In order to create the keys, we need to run the command `ssh-keygen` on our client pc terminal. The default file locations and passphrase work fine. This will create the necessary key files. Once the files are created, log in to the remote server using `ssh` and create a .ssh folder using the command `mkdir .ssh`. Once that has been done, log out and use the `scp` command to copy the id_rsa.pub file (the public key) in the .ssh folder created when making the keys on the client pc to the server's .ssh folder. This is done with the command `scp /Users/conno/.ssh/id_rsa.pub cs15lwi22amb@ieng6.ucsd.edu:~/.ssh/authorized_keys`
+
+note: *the user and 3 characters following wi22 should be different.*
+
+Once done, the password step should be bypassed for future uses of `ssh` and `scp`.
+
+![keygen](lab1ss/sshkey_screenshot.png)
+
+## Optimizing Remote Running
+
+Here we just wanted to try to find ways to speed up the process of running our programs faster through the remote system. 
+
+The most useful command I found was a command that copied our java program to the remote system, compiled the program on the remote system, and ran the program on the remote system. 
+
+```
+$scp WhereAmI.java cs15lwi22amb@ieng6.ucsd.edu:~/ ; ssh cs15lwi22amb@ieng6.ucsd.edu "javac WhereAmI.java ; java WhereAmI"
+```
+
+![fast](lab1ss/inputfaster_screenshot.png)
+
+If I were to be making changes to the program, I could simply save the file, the use the up arrow in my terminal and it would copy, compile, and run the program to the remote system all in one command. 
