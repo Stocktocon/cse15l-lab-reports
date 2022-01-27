@@ -14,13 +14,21 @@ $java -version
 
 ![javaver](lab1ss/javaversion_screenshot.png)
 
-If it says `java version "##"` then java is installed properly. Java 8 or higher should be up to date enough for our purposes. If this does not appear, then you would have to install java and modify the system environment path variable.
+If it says 
+```
+java version "##"
+```
+ then java is installed properly. Java 8 or higher should be up to date enough for our purposes. If this does not appear, then you would have to install java and modify the system environment path variable.
 
 ---
 
 ## Remotely Connecting
 
-Aside from the password pains, logging in through the ssh to the remote computer wasn't too difficult. By entering `ssh cs15lwi22amb@ieng6.ucsd.edu` (the 3 characters after wi22 varies person to person) and inputting a password we get logged in. This simply allows us to access the remote desktop through our terminal
+Aside from the password pains, logging in through the ssh to the remote computer wasn't too difficult. By entering 
+```
+ssh cs15lwi22amb@ieng6.ucsd.edu
+```
+(the 3 characters after wi22 varies person to person) and inputting a password we get logged in. This simply allows us to access the remote desktop through our terminal
 
 ![sshlogin](lab1ss/ssh_screenshot.png)
 
@@ -59,7 +67,18 @@ By logging in through `ssh` and using the `ls` command we can indeed see that th
 
 We create an SSH key in order to skip the step of inputting our password whenever using the `SSH` or `SCP` command. This saves us time.
 
-In order to create the keys, we need to run the command `ssh-keygen` on our client pc terminal. The default file locations and passphrase work fine. This will create the necessary key files. Once the files are created, log in to the remote server using `ssh` and create a .ssh folder using the command `mkdir .ssh`. Once that has been done, log out and use the `scp` command to copy the id_rsa.pub file (the public key) in the .ssh folder created when making the keys on the client pc to the server's .ssh folder. This is done with the command `scp /Users/conno/.ssh/id_rsa.pub cs15lwi22amb@ieng6.ucsd.edu:~/.ssh/authorized_keys`
+In order to create the keys, we need to run the command 
+```
+ssh-keygen
+``` 
+on our client pc terminal. The default file locations and passphrase work fine. This will create the necessary key files. Once the files are created, log in to the remote server using `ssh` login and create a .ssh folder using the command 
+```
+mkdir .ssh
+```
+Once that has been done, log out and use the `scp` command to copy the id_rsa.pub file (the public key) in the .ssh folder created when making the keys on the client pc to the server's .ssh folder. This is done with the command 
+```
+scp /Users/conno/.ssh/id_rsa.pub cs15lwi22amb@ieng6.ucsd.edu:~/.ssh/authorized_keys
+```
 
 note: *the user and 3 characters following wi22 should be different.*
 
@@ -80,3 +99,17 @@ $scp WhereAmI.java cs15lwi22amb@ieng6.ucsd.edu:~/ ; ssh cs15lwi22amb@ieng6.ucsd.
 ![fast](lab1ss/inputfaster_screenshot.png)
 
 If I were to be making changes to the program, I could simply save the file, the use the up arrow in my terminal and it would copy, compile, and run the program to the remote system all in one command. 
+
+
+code of WhereAmI.java
+```
+class WhereAmI {
+    public static void main(String[] args) {
+      System.out.println(System.getProperty("os.name"));
+      System.out.println(System.getProperty("user.name"));
+      System.out.println(System.getProperty("user.home"));
+      System.out.println(System.getProperty("user.dir"));
+      System.out.println("Second");
+    }
+  }
+```
