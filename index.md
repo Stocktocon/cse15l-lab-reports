@@ -5,7 +5,7 @@
 ## randoms and fun idk index.md lol
 how was your day?
 
-[Something](https://stocktocon.github.io/cse15l-lab-reports/something.html) is a link
+[Something](https://stocktocon.github.io/cse15l-lab-reports/something.html) is a link. Leads to my githug pages testing ground for the MarkdownParse program
 
 > fake quote 
 
