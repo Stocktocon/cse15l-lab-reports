@@ -8,6 +8,8 @@ Description: learning how to access the UCSD lab remote desktops through SSH
 ## Installing VSCode
 Installing Visual Studio Code was something that I did for a previous class but I'll just quickly run through the process that I did at that time. 
 
+You can install VSCode from [this link.](https://code.visualstudio.com/)
+
 The VSCode download and installer is fairly simple. The only real difficulty came with making sure that java was installed properly. To do this all you have to do is go into the the command console and run 
 
 $java -version
