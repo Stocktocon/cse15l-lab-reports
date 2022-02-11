@@ -1,4 +1,4 @@
-![Umi -_-](lab3ss/umi-_-.png)
+![Umi unamused](lab3ss/umi-_-.png)
 
 # Lab Report 3
 
@@ -81,4 +81,40 @@ I'll just show that it works properly by adding a file called `added_from_ieng6.
 ![commit](lab3ss/committedhistory.png)
 
 
-##
+## Copying full directories with `scp -r`
+
+When trying to test our code, it's useful to be able to copy the entire directory containing all of the files into ieng6. 
+
+To do that, we could just do the same thing as before with scp but using the additional argument `-r` and instead of a file name, you could do a repository. Together it should look like this
+
+```
+$ scp -r /local/dir ieng6:~/server/dir
+```
+
+
+Here you can see it copying all of the files from markdown parse into ieng6. 
+
+![mdpscp](lab3ss/scp-r.png)
+
+Now that our code is in ieng6, we can use the commands
+
+```
+javac -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar MarkdownParseTest.java
+
+java -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar org.junit.runner.JUnitCore MarkdownParseTest
+```
+
+to compile and run markdown parse's testers from ieng6. 
+
+![mdpieng6](lab3ss/mdpfromieng6.png)
+
+Similar to what we did in lab report 1, we could also do all of this in one command by doing:
+
+```
+scp -r /local/dir ieng6:~/server/dir; ssh ieng6; cd server/dir; javac -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar MarkdownParseTest.java; java -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar org.junit.runner.JUnitCore MarkdownParseTest
+```
+
+![allin1](lab3ss/allin1p1.png)
+![allin1](lab3ss/allin1p2.png)
+
+note: The tester was removed due to a compile error when trying to run the testers in this way (appears when trying to use JUnit from vscode directly as well but it didn't appear when doing the command line compile and running so I have no real idea what the error is) You can find the image of the error [here](https://media.discordapp.net/attachments/671205412074422312/941773576971878430/unknown.png?width=521&height=936). I just get a problem where it says that the files don't exist when they clearly do and I have no idea why this happens so I'll just leave it here for now.
