@@ -1,0 +1,84 @@
+![Umi -_-](lab3ss/umi-_-.png)
+
+# Lab Report 3
+
+The goal of this lab was to increase the ease of using github and the ssh server access.
+
+---
+
+## SSH Configuration
+
+For this part, we just wanted to make it easier to log into the lab computers with ssh. In a previous lab, we made it easier to log into SSH by creating an ssh key for the two computers to contain allowing us to bypass the password. For this part of the lab, our goal is to make logging in even easier. To do this, we can go into the ssh config file and configure a custom user setting to log into the remote server. Previously to log into SSH, I would have to type:
+```
+ssh cs15lwi22amb@ieng6.ucsd.edu
+```
+
+By creating a file named `config` in the `.ssh` folder and using a text editing software, we give it the contents: 
+
+![sshconfig](/lab3ss/configFile.png)
+
+The `HostName` represents the id typed after the `@` in the login while the `User` is the id before the `@`. 
+
+Commands done previously to connect to the `ssh` server work similarly with this new host name. An example using `scp` is given below.
+
+![scpumi:D](/lab3ss/scpez.png)
+
+## GitHub Acess from ieng6
+
+Our goal here is to gain access to Github from our ieng6 accounts, meaning through `SSH`.
+
+### **Setting up ssh keys for github**
+
+similar to in lab report 1, we have to run this command once again. This time do it while on the `ieng6` account. 
+
+```
+ssh-keygen
+```
+
+This time it might be useful give it a different name. To do this, just type a name
+
+![keygen](lab3ss/keygen.png)
+
+Now in order to put this on Github, we're goig to want the text contents of the public key. For this, since we cannot access the file contents of things in the ieng6 server, *yet*, we're going to want to copy it over to our local computer. To do this it's similar to copying files over from the local computer to the ieng6 server except you give the first argument as the file in ieng6 and the second argument is the directory we want to copy it to our local computer. For this example I copied it over to the Desktop.
+
+![scptolocal](lab3ss/copypubkey.png)
+
+We can open the file in VSCode or any other text editor and the contents of mine happens to be 
+
+```
+ssh-ed25519 AA3zClZD1NE5AAIQRoYYQL8E4AQ15tK9dW5ANr+p stocktocon@gmail.com
+```
+*I had just removed some characters from the text to not have the contents on the page.*
+
+To add it on to Github, go into settings and there is a subsection of `SSH and GPG keys` and then you can just press the green `New SSH key`. Under `Title`, give it a name that you'd recognize and copy and paste the file contents of the public ssh key file into the `Key` text edit field. 
+
+![githubKeys](lab3ss/githubkeyspage.png)
+
+Once here, you should be good to go (almost but I'll get to that in a bit). You can now pull things from Github. Log back into ieng6 and try to run a `git` command, say 
+
+```
+git clone *some github repository*
+```
+![failed clone](lab3ss/failedclone.png)
+
+If an error like the one above appears, then you would need to initialize an `ssh-agent` and add the key to the agent. This can be done automatically but I've yet to configure it myself yet. Once I do this myself, you can find my guide to it [here]().
+
+to set up the ssh-agent run these commands
+
+```
+$ eval `ssh-agent`
+$ ssh-add .ssh/id_ed25519 *or the file directory of the private key added to github*
+```
+
+![itworksnow](lab3ss/cloneworks.png)
+
+Now git commands should work through the ieng6 computer.
+
+I'll just show that it works properly by adding a file called `added_from_ieng6.txt` in from ieng6 into the lab report repository.
+
+![commit terminal](lab3ss/commitproof.png)
+
+![commit](lab3ss/committedhistory.png)
+
+
+##
