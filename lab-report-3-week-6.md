@@ -111,7 +111,7 @@ to compile and run markdown parse's testers from ieng6.
 Similar to what we did in lab report 1, we could also do all of this in one command by doing:
 
 ```
-scp -r /local/dir ieng6:~/server/dir; ssh ieng6; cd server/dir; javac -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar MarkdownParseTest.java; java -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar org.junit.runner.JUnitCore MarkdownParseTest
+scp -r /local/dir ieng6:~/server/dir; ssh ieng6 "cd server/dir; javac -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar MarkdownParseTest.java; java -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar org.junit.runner.JUnitCore MarkdownParseTest"
 ```
 
 ![allin1](lab3ss/allin1p1.png)
