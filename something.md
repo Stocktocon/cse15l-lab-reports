@@ -34,6 +34,7 @@ here is random example of code
 public static void main(String[]){
     int[] something = {1, 2, 3, 4};
     System.out.println(something);
+    [link inside the code thing](codingisfun.io)
 }
 ```
 
@@ -47,10 +48,26 @@ space in the link section test [space link](https:// thishas a space)
 
 \n test [
     this has a \n in the text
-](doesitwork.com)
+](doesitwork.com) 
+
+\n test but double \n
+
+[this
+
+has
+
+\n but twice in the text](testtest)
 
 [this has a \n in the link](doesit
 work.com)
+
+[this has a \n in the link twice](does
+
+it
+
+work
+
+.com)
 
 [reference test][ref]
 
@@ -71,7 +88,14 @@ things and stuff woooooooo
 to make change easier to see
 
 [ref]: https://monkeytype.com
-[ref2]:https://10fastfingers.com
+[ref2] :https://10fastfingers.com
+
+
+testing committing and stuff through command linegrade.sh %runs the student code
+
+git clone $1 %first commandline argument
+
+
 
 
 test command line add, commit and push
