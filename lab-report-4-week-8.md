@@ -32,16 +32,26 @@ Again all three test files failed. For the first and second file, they fail for 
 
 ### Our code:
 
-for our code, if we create the fixes in the way that I originally intended to create them, then no it would not be an easy fix. My intended path of operations is pairing each set of brackets and parenthesis then checking the contents inside those pairs to elimate them. That would require a method that pairs the grouping symbols and then create a series of if statements for each type of grouping that has the set of elimination categories that might occur. It's also likely for the \` character, and \`\`\` characters have to be grouped as well and then elimate the grouping symbols that are contained within them. These should cover the problems that occur within these test cases.
+for our code, if we create the fixes in the way that I originally intended to create them, then no it would not be an easy fix. My intended path of operations is pairing each set of brackets and parenthesis then checking the contents inside those pairs to elimate them. That would require a method that pairs the grouping symbols and then create a series of if statements for each type of grouping that has the set of elimination categories that might occur. 
+
+For the first file, the check would be to check if there is a \` on the same line before a [ or ( character. If there is, we would find the next index of a \` character before a new line character. Based on my planned implementation, we would then elimanate that pair.
+
+For the second file, my planned form of grouping would result in the fix. However it's not an easy implementation.
+
+For the third file, once we have the implementation of the grouping symbol pairing, we would run a pair.contains("\n\n") then we would eliminate the pair from the list which would result in the fix. 
 
 ### Their code:
 
 While I don't know exactly what their author had in mind when programming I'll try my best to see what they need to fix.
 
-First of all, to fix the last test, they could just add an 
+To fix the last test, they could just add an 
 
 ```
 25      if (!link.contains(" ")||!link.contains("\n\n")) {
 ```
 
-to their code on line 25. That would eliminate the problems where the parenthesis contain it but doesn't cover the part for the brackets since they have no way to check for the contents in the brackets so they would have to modify their code completely to encoorperate that. For the \` cases, there would also have to be a major change to check if there's a \` containing the [ character. For the second test file, it also wouldn't be a simple fix since they'd need to implement a way to detect and accommadate for the nested (). All of the things that aren't simple fixes just requires completely different and new implelentations. 
+to their code on line 25. That would eliminate the problems where the parenthesis contain it but doesn't cover the part for the brackets since they have no way to check for the contents in the brackets so they would have to modify their code completely to encoorperate that. 
+
+That problem occurs for the first test as well with the \` character. For the \` cases, there would also have to be a major change to check if there's a \` containing the [ character. Again, since their test has no way to account for the [ character then it would require the major change to their code to account for the opening bracket.
+
+For the second test file, it also wouldn't be a simple fix since they'd need to implement a way to detect and accommadate for the nested (). All of the things that aren't simple fixes just requires completely different and new implelentations. 
